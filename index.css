@@ -1,0 +1,111 @@
+*{
+	box-sizing:border-box;
+}
+body{
+	background-color: lightseagreen;
+}
+.title{
+	font-family: 'Press Start 2P', cursive;
+	text-align: center;
+	margin-top: 100px;
+}
+.outerCont{
+width: fit-content;
+height: fit-content;
+left: 0;
+right: 0;
+margin: auto;
+margin-top: 100px;
+}
+.gridContainer{
+	display: grid;
+	gap:10px;
+	position: relative;
+	grid-template-columns: 200px 200px ;
+	z-index: 0;
+	background-color: black;
+	border-radius: 130px;
+}
+.gridItem{
+	border: 6px solid black;
+	height: 200px;
+	width: 200px;
+	background-color: white;
+	opacity: 0.7;
+	transition: opacity 500ms;
+}
+.gridItem:hover{
+	border: 3px white solid;
+}
+.item1{
+	border-top-left-radius: 130px;
+    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+    background-color: red;
+}
+.item2{
+	border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 130px;
+    background-color: greenyellow;
+}
+.item4{
+    border-bottom-left-radius: 130px;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+	background-color: deepskyblue;
+}
+.item3{
+	border-bottom-right-radius: 130px;
+	    border-bottom-left-radius: 20px;
+    border-top-right-radius: 20px;
+	background-color: yellow;
+}
+.item5{
+	border-radius: 50%;
+	height: 8px;
+	width: 8px;
+	position: relative;
+	grid-column-start: 1;
+	grid-column-end: 2;
+}
+.flash{
+	opacity: 1;
+}
+.circle{
+	position: relative;
+	z-index: 1;
+	border-radius: 50%;
+	height: 150px;
+	width: 150px;
+	background-color:  black;
+	margin: auto;
+    bottom: 285px;
+}
+.circle h3{
+	margin: auto;
+    text-align: center;
+    color: aliceblue;
+    padding-top: 52px;
+    font-size: 2rem;
+    font-family: 'Monoton', cursive;
+    /*font-family: 'Press Start 2P', cursive;*/
+
+}
+.circle p{
+	margin: auto;
+    text-align: center;
+    color: aliceblue;
+    padding-top: 68px;
+    font-family: 'Press Start 2P', cursive;
+    line-height: 13px;
+}
+.circle h1{
+	margin: auto;
+    text-align: center;
+    color: aliceblue;
+    padding-top: 68px;
+    font-family: 'Press Start 2P', cursive;
+    line-height: 13px;
+    font-size: 13px;
+}
