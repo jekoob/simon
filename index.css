@@ -1,14 +1,21 @@
 *{
 	box-sizing:border-box;
 }
+html{
+	width: fit-content;
+}
 body{
 	background-color: lightseagreen;
+	margin: 4px
 }
 .title{
 	font-family: 'Press Start 2P', cursive;
 	text-align: center;
 	margin-top: 100px;
+	height: 89px;
 }
+
+
 .outerCont{
 width: fit-content;
 height: fit-content;
@@ -108,4 +115,30 @@ margin-top: 100px;
     font-family: 'Press Start 2P', cursive;
     line-height: 13px;
     font-size: 13px;
+}
+
+@media(min-width:500px){
+	#instruction1{
+		display: block;
+
+	}
+	#instruction2{
+		display: none;
+	}
+
+	html{
+		width: 100%;
+	}
+}
+@media(max-width:500px ){
+	#instruction1{
+		display: none;
+
+	}
+	#instruction2{
+		display: block;
+	}
+		html{
+		width: fit-content;
+	}
 }

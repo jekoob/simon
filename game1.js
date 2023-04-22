@@ -34,6 +34,7 @@ function simonSay(){
 			},300);
 			power=true;
 			$("body").off("keydown");
+			$("html").off("click");
 			console.log(sequency);
 				let intervalId = setInterval(()=>{
 					if(count<level){
@@ -79,9 +80,12 @@ function comper(){
 				},400);
 				level=1;
 				count=0;
-				$("body").on("keydown",()=>{
+/*				$("body").on("keydown",()=>{
 					simonSay();
 				})
+				$("html").on("click",()=>{
+					simonSay();
+				})*/
 			}
 		}
 	});
@@ -103,7 +107,8 @@ function levelUp(){
 function flashOver(){
 	setTimeout(()=>{
 		$(".circle").html("<h1 style=font-size:60px>&#128128</h1>");
-		$(".title h1").text("Game over, press a key to restart");
+		$("#instruction1").text("Game over, press a key to restart");
+		$("#instruction2").text("Game over, click on to restart");
 		audio["negative-beep"].play();
 	},430);
 	
@@ -140,6 +145,14 @@ function flashOver(){
 			count=0;
 		}
 	},230);
+	setTimeout(()=>{
+		$("body").on("keydown",()=>{
+		simonSay();
+		})
+		$("html").on("click",()=>{
+			simonSay();
+		})
+	},400);
 }
 function gradlyFlash(){
 	let count=0;
@@ -168,5 +181,8 @@ function getTheSounds(sound){
 }
 
 $("body").on("keydown",()=>{
+simonSay();
+});
+$("html").on("click",()=>{
 simonSay();
 });
