@@ -13,6 +13,14 @@ body{
 	text-align: center;
 	margin-top: 100px;
 	height: 89px;
+	line-height: 30px;
+}
+.title h1{
+	font-size: 20px;
+
+}
+.circle h1{
+	font-size: 45px;
 }
 
 
@@ -81,6 +89,7 @@ margin-top: 100px;
 }
 .circle{
 	position: relative;
+	display: grid;
 	z-index: 1;
 	border-radius: 50%;
 	height: 150px;
@@ -88,12 +97,12 @@ margin-top: 100px;
 	background-color:  black;
 	margin: auto;
     bottom: 285px;
+    align-content: center;
 }
 .circle h3{
 	margin: auto;
     text-align: center;
     color: aliceblue;
-    padding-top: 52px;
     font-size: 2rem;
     font-family: 'Monoton', cursive;
     /*font-family: 'Press Start 2P', cursive;*/
@@ -103,7 +112,6 @@ margin-top: 100px;
 	margin: auto;
     text-align: center;
     color: aliceblue;
-    padding-top: 68px;
     font-family: 'Press Start 2P', cursive;
     line-height: 13px;
 }
@@ -111,12 +119,21 @@ margin-top: 100px;
 	margin: auto;
     text-align: center;
     color: aliceblue;
-    padding-top: 68px;
     font-family: 'Press Start 2P', cursive;
     line-height: 13px;
-    font-size: 13px;
+    font-size: 45px;
 }
 
+.fa.fa-refresh{
+	display: block;
+	height: 100%;
+	color:white;
+	font-size: 40px;
+	margin: auto;
+}
+.levelup{
+	font-size: 13px;
+}
 @media(min-width:500px){
 	#instruction1{
 		display: block;
@@ -138,7 +155,29 @@ margin-top: 100px;
 	#instruction2{
 		display: block;
 	}
-		html{
+	html{
 		width: fit-content;
+   		 margin: auto;
+	}
+	.title{
+		
+		margin-top: 70px;
+		
+
+	}
+	.gridContainer {
+   		 grid-template-columns: 160px 160px;
+ 	 }
+	.gridItem {
+		height: 160px;
+		width: 160px;
+	}
+	.circle{
+		height: 150px;
+		width: 150px;
+		bottom:244px;
+	}
+	.outerCont{
+		margin-top:152px;
 	}
 }

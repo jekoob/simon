@@ -1,35 +1,39 @@
 let power=false;
-let win = false;
+
 let sequency=[];
 let good=true;
 let userTry;
 let level=1;
 let count=0;
-let soundsNames=["one","two","three","four","level-up","negative-beep"];
+let soundsNames=["one","two","three","four","level-up","negative-beep","Congratulations"];
 let audio={};
+var levels = 5;
 
 for(let i=0;i<soundsNames.length;i++){
 	getTheSounds(soundsNames[i]);
 }  
+orderArray();
 
-for(let i=0;i<20;i++){
+function orderArray(){
+	for(let i=0;i<levels;i++){
 	let chiose = randomNum();
-	switch(chiose){
-		case 1:chiose="one";
-			break;
-		case 2:chiose="two";
-			break; 
-		case 3:chiose="three";
-			break; 
-		case 4:chiose="four";
-			break;  
+		switch(chiose){
+			case 1:chiose="one";
+				break;
+			case 2:chiose="two";
+				break; 
+			case 3:chiose="three";
+				break; 
+			case 4:chiose="four";
+				break;  
+		}
+		sequency.push(chiose);
 	}
-	sequency.push(chiose);
 }
 
 function simonSay(){
 			setTimeout(()=>{
-				$(".title h1").text("level "+level);
+				$(".title h1").text("LEVEL "+level);
 				$(".circle").html("<P>simon </b>say..</P>");
 			},300);
 			power=true;
@@ -68,8 +72,18 @@ function comper(){
 				count++;
 				if(count===level){
 					$(".gridItem").off("click");
-					if(level!==20){
+					if(level!==levels){
 						levelUp();
+					}else{
+							$("body").off("keydown",()=>{
+							simonSay();
+							})
+							$("html").off("click",()=>{
+								simonSay();
+							});
+							$("div.title").html("<h1 class='title'>LEVEL "+levels+"</br></br> Gratulation you have a phenomenal memory</h1>");
+							audio["Congratulations"].play();
+							$(".circle").html("<i class='fa fa-refresh' aria-hidden='true' onclick='startOver()'></i>");
 					}
 				}
 			}
@@ -106,7 +120,7 @@ function levelUp(){
 
 function flashOver(){
 	setTimeout(()=>{
-		$(".circle").html("<h1 style=font-size:60px>&#128128</h1>");
+		$(".circle").html("<h1>&#128128</h1>");
 		$("#instruction1").text("Game over, press a key to restart");
 		$("#instruction2").text("Game over, click on to restart");
 		audio["negative-beep"].play();
@@ -145,6 +159,8 @@ function flashOver(){
 			count=0;
 		}
 	},230);
+	sequency=[];
+	orderArray();
 	setTimeout(()=>{
 		$("body").on("keydown",()=>{
 		simonSay();
@@ -157,7 +173,7 @@ function flashOver(){
 function gradlyFlash(){
 	let count=0;
 	setTimeout(()=>{
-		$(".circle").html("<h1>LEVEL UP !</h1>");
+		$(".circle").html("<p class='levelup'>LEVEL UP !</p>");
 			let intervalId = setInterval(()=>{
 			$(".gridItem").addClass("flash");
 			audio["level-up"].play();
@@ -179,7 +195,15 @@ function getTheSounds(sound){
 	audio[sound] = new Audio();
         audio[sound].src = "sounds/"+sound+".mp3"
 }
+function startOver(){
+	levels+=5;
+	count=0;
+	level=1;
+	sequency=[];
+	orderArray();
+	simonSay();
 
+}
 $("body").on("keydown",()=>{
 simonSay();
 });
